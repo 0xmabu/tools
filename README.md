@@ -2,9 +2,11 @@
 ## Clipboard Data Transfer
 This tool can be used to transfer files over the MSRDP protocol from within PowerShell, utilizing the "Clipboard Virtual Extension" of the protocol, documented here: https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-rdpeclip/.
 
-The function uses the Get-Clipboard and Set-Clipboard cmdlets to transfer files between two computers, one acting as the "sender" and one as the "receiver".
+ It can be a direct connection MSRDP connection between two computers, or it can be a chained connection involving multiple jump hosts. As long as all computers in the chain have not enabled the policy "Do not allow Clipboard redirection", it should work.
 
-Load the script:
+The function uses the Get-Clipboard and Set-Clipboard cmdlets to transfer files between a "sender" and a "receiver".
+
+Load the script in the current PowerShell session:
 >. .\clipboard_transfer.ps1
 
 Start as receiver:
